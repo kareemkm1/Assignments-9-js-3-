@@ -80,10 +80,7 @@ function deleteBookMark(deletedBookMark) {
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, delete it!"
     }).then((result) => {
-        bookMarkContainer.splice(deletedBookMark, 1)
-        localStorage.setItem('bookMarks', JSON.stringify(bookMarkContainer))
-        displayBookMark()
-
+        
 
         if (result.isConfirmed) {
             Swal.fire({
@@ -91,6 +88,10 @@ function deleteBookMark(deletedBookMark) {
                 text: "Your file has been deleted.",
                 icon: "success"
             });
+            bookMarkContainer.splice(deletedBookMark, 1)
+            localStorage.setItem('bookMarks', JSON.stringify(bookMarkContainer))
+            displayBookMark()
+
         }
     });
 
